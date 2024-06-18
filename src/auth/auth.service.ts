@@ -21,7 +21,7 @@ export class AuthService extends PrismaClient implements OnModuleInit {
   }
 
   async signJWT(payload: JwtPayload) {
-    return this.jwtService.sign(payload)
+    return this.jwtService.sign(payload);
   }
 
   async registerUser(registerUserDto: RegisterUserDto) {
@@ -49,13 +49,12 @@ export class AuthService extends PrismaClient implements OnModuleInit {
         },
       });
 
-      const {password: _, ...rest} = newUser;
+      const { password: _, ...rest } = newUser;
 
       return {
         user: rest,
-        token: await this.signJWT(rest)
+        token: await this.signJWT(rest),
       };
-
     } catch (error) {
       throw new RpcException({
         status: 400,
@@ -79,7 +78,7 @@ export class AuthService extends PrismaClient implements OnModuleInit {
           status: 400,
           message: 'User/Password not valid',
         });
-      };
+      }
 
       const isPasswordValid = bcrypt.compareSync(password, user.password);
 
@@ -87,20 +86,15 @@ export class AuthService extends PrismaClient implements OnModuleInit {
         throw new RpcException({
           status: 400,
           message: 'User/Password not valid',
-        })
+        });
       }
 
-
-
-
-      const {password: _, ...rest} = user;
+      const { password: _, ...rest } = user;
 
       return {
         user: rest,
-        token: await this.signJWT(rest)
-
+        token: await this.signJWT(rest),
       };
-
     } catch (error) {
       throw new RpcException({
         status: 400,

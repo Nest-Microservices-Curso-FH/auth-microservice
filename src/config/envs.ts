@@ -5,7 +5,7 @@ interface EnvVars {
   PORT: number;
 
   NATS_SERVERS: string[];
-  JWT_SECRET: string
+  JWT_SECRET: string;
 }
 
 const envsSchema = joi
