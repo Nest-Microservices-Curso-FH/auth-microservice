@@ -4,7 +4,7 @@ steps:
       [
         "build",
         "-t",
-        "europe-southwest1-docker.pkg.dev/fh-nest-microservices/image-registtry/client-gateway",
+        "europe-southwest1-docker.pkg.dev/fh-nest-microservices/image-registtry/auth-microservice",
         "-f",
         "dockerfile.prod",
         "--platform=linux/amd64",
@@ -14,7 +14,7 @@ steps:
     args:
       [
         "push",
-        "europe-southwest1-docker.pkg.dev/fh-nest-microservices/image-registtry/client-gateway",
+        "europe-southwest1-docker.pkg.dev/fh-nest-microservices/image-registtry/auth-microservice",
       ]
 options:
   logging: CLOUD_LOGGING_ONLY
